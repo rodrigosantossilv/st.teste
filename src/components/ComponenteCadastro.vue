@@ -125,6 +125,8 @@ import Chart from 'chart.js/auto';
 
 export default {
   name: "ComponenteCadastro",
+  
+
   data() {
     return {
       mostrarFormulario: true,

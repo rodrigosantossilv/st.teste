@@ -1,5 +1,4 @@
 <template>
-     <div>
     <!-- Cabeçalho -->
     <header class="bg-primary text-white p-3">
     </header>
@@ -46,7 +45,7 @@
         <!-- Botão de Logout -->
         <div class="mt-4 pt-2 border-top">
   <button @click="logout" class="btn btn-danger w-100 custom-logout-button">Sair</button>
-</div>
+ 
 
 
       </div>
@@ -59,11 +58,13 @@
 
 <script>
 import { ROLES } from "../util/roles";
-import TerceiroComponeteKaban from './ComponeteKaban.vue';
+import ComponeteKaban from './ComponeteKaban.vue';
+import { onMounted } from 'vue';
+import Chart from 'chart.js/auto';
 export default {
   name: 'ComponeteNav',
   components: {
-    TerceiroComponeteKaban,
+    ComponeteKaban
 
   },
   data () {
@@ -71,7 +72,7 @@ export default {
       filterOcupacao: "TODOS",
       ROLES,
       role: null,
-      mostrarFormulario: false,
+      mostrarFormulario: true,
 
     };
   },
@@ -79,3 +80,22 @@ export default {
 </script>
 
 
+<style>
+
+.sidebar .nav-item {
+  margin: 10px 0;
+}
+
+.sidebar .nav-link {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #043c61;
+}
+</style>
