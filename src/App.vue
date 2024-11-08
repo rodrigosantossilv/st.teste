@@ -1,30 +1,36 @@
 <template>
-  <PrimeiroComponeteNav />
-  <SegundoComponeteHome />
-  <TerceiroComponeteKaban />
-  <QuartoComponenteCadastro />
-  <QuintoComponenteControlesala />
-  <SextoComponeteControleUsuario />
+  <ComponeteNav />
+  <ComponeteHome />
+  <ComponeteKaban />
+  <ComponenteCadastro />
+  <ComponenteControlesala />
+  <ComponeteControleUsuario />
+  <loginPage />
+  <OpeticketPage />
   
 </template>
 
 <script>
-import PrimeiroComponeteNav from './components/PrimeiroComponeteNav.vue';
-import QuartoComponenteCadastro from './components/QuartoComponenteCadastro.vue';
-import QuintoComponenteControleSala from './components/QuintoComponenteControleSala.vue';
-import SegundoComponeteHome from './components/segundoComponeteHome.vue';
-import SextoComponeteControleUsuario from './components/SextoComponeteControleUsuario.vue';
-import TerceiroComponeteKaban from './components/TerceiroComponeteKaban.vue';
+import loginPage from './components/LoginPage.vue';
+import OpeticketPage from './components/OpenTicketPage.vue';
+import ComponeteNav from './components/ComponeteNav.vue';
+import ComponenteCadastro from './components/ComponenteCadastro.vue';
+import ComponenteControleSala from './components/ComponenteControleSala.vue';
+import ComponeteHome from './components/ComponeteHome.vue';
+import ComponeteControleUsuario from './components/ComponeteControleUsuario.vue';
+import ComponeteKaban from './components/ComponeteKaban.vue';
 
 export default {
-  name: 'App',
+  name: 'App', 
   components: {
-    PrimeiroComponeteNav, 
-    SegundoComponeteHome, 
-    TerceiroComponeteKaban,
-    QuartoComponenteCadastro,
-    QuintoComponenteControleSala, 
-    SextoComponeteControleUsuario
+    loginPage,
+    OpeticketPage,
+    ComponeteNav, 
+    ComponeteHome, 
+    ComponeteKaban,
+    ComponenteCadastro,
+    ComponenteControleSala, 
+    ComponeteControleUsuario
   },
   data() {
     return {
@@ -33,6 +39,9 @@ export default {
   }
 
 };
+
+
+
 </script>
 
 <style scoped>

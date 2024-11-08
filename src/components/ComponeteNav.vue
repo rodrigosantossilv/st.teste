@@ -20,8 +20,6 @@
               <option value="TODOS" selected>Todos os Chamados</option>
               <option value="ESTUDANTE">Alunos</option>
               <option value="DOCENTE">Docentes</option>
-              <option value="MANUTENCAO">Manuteção</option>
-              <option value="TI">Técnico de TI</option>
               <option value="NOA">ADM</option>
             </select>
           </li>
@@ -55,10 +53,24 @@
 </div>
 
 </div>
+
+<TeceiroComponeteKaban />
 </template>
 
 <script>
+import { ROLES } from "../util/roles";
+import TerceiroComponeteKaban from './ComponeteKaban.vue';
 export default {
-  name: 'PrimeiroComponeteNav',
+  name: 'ComponeteNav',
+  components: {
+    TerceiroComponeteKaban
+  },
+  data () {
+    return {
+      filterOcupacao: "TODOS",
+      ROLES,
+      role: null,
+    };
+  },
 }
 </script>
