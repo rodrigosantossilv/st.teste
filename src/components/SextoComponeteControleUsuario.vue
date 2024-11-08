@@ -63,3 +63,9 @@
         </div>
 
 </template>
+
+<script>
+export default {
+  nome: 'SextoComponeteControleUsuario',
+}
+</script>

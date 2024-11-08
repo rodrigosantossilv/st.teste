@@ -124,6 +124,7 @@ import { onMounted } from 'vue';
 import Chart from 'chart.js/auto';
 
 export default {
+  name: "QuartoComponenteCadastro",
   data() {
     return {
       mostrarFormulario: true,

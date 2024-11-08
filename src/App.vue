@@ -1,21 +1,508 @@
 <template>
-  <PrimeiroComponeterNav />
+  <PrimeiroComponeteNav />
   <SegundoComponeteHome />
-  <terceiro-componetekaban />
+  <TerceiroComponeteKaban />
   <QuartoComponenteCadastro />
+  <QuintoComponenteControlesala />
+  <SextoComponeteControleUsuario />
+  
 </template>
 
 <script>
-import PrimeiroComponeterNav from './components/PrimeiroComponeterNav.vue';
+import PrimeiroComponeteNav from './components/PrimeiroComponeteNav.vue';
 import QuartoComponenteCadastro from './components/QuartoComponenteCadastro.vue';
+import QuintoComponenteControleSala from './components/QuintoComponenteControleSala.vue';
 import SegundoComponeteHome from './components/segundoComponeteHome.vue';
+import SextoComponeteControleUsuario from './components/SextoComponeteControleUsuario.vue';
 import TerceiroComponeteKaban from './components/TerceiroComponeteKaban.vue';
+
 export default {
-  components: { TerceiroComponeteKaban },
-  name: 'nav',
+  name: 'App',
+  components: {
+    PrimeiroComponeteNav, 
+    SegundoComponeteHome, 
+    TerceiroComponeteKaban,
+    QuartoComponenteCadastro,
+    QuintoComponenteControleSala, 
+    SextoComponeteControleUsuario
+  },
+  data() {
+    return {
+
+    }
+  }
+
 };
 </script>
 
-<style>
-/* Adicione aqui estilos globais, se necessário */
+<style scoped>
+/* Estilos para o Cabeçalho */
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #0d6efd;
+  width: 400px;
+  min-height: 100vh;
+  color: white;
+  padding: 1rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar .nav-item {
+  margin: 10px 0;
+}
+
+.sidebar .nav-link {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #043c61;
+}
+
+/* Responsividade para Sidebar */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: 400px;
+    top: 0;
+    height: 100%;
+    z-index: 1000;
+    transform: translateX(0);
+  }
+
+  .sidebar.active {
+    transform: translateX(450px);
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* Tabela e Formulário */
+.table-container {
+  flex: 1; /* Ajuste a propriedade 'flex' para garantir que o conteúdo ocupe o espaço disponível */
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(33, 33, 33, 0.292);
+  border-radius: 12px;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 30px;
+  margin-bottom: 30px; /* Ajuste a margem inferior para 30px, se necessário */
+  font-weight: bold;
+  
+}
+
+
+.table-container h2 {
+  font-size: 1.6rem;
+  color: #007bff;
+  font-weight: bold;
+
+  
+}
+
+.table-responsive {
+  margin-top: 1rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-weight: bold;
+/* box-shadow: 0 4px 12px rgba(33, 33, 33, 0.292);
+  border-radius: 12px;
+  transition: transform 0.3s ease; 
+  transition: transform 0.3s ease; Adiciona uma transição suave */
+}
+
+/* Efeito hover na tabela */
+
+.table thead th {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  
+}
+
+.table tbody td {
+  padding: 0.75rem;
+  text-align: center;
+  
+}
+
+.table tbody tr:hover {
+  background-color: #f1f1f1;
+  
+}
+
+/* Botões */
+.btn {
+  margin: 0 5px;
+  font-size: 0.9rem;
+}
+
+/* Formulário de Cadastro */
+.form-container {
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(33, 33, 33, 0.292);
+  border-radius: 12px;
+  margin-left: 300px;
+  margin-right: 100px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.form-container h2 {
+  font-size: 1.4rem;
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+.form-container .form-group label {
+  font-weight: bold;
+}
+
+.form-container .form-group input,
+.form-container .form-group select {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ced4da;
+  width: 100%;
+  
+}
+
+.form-container button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+
+}
+
+.form-container button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.kanban-column{
+  width: 32%;
+  margin: 0.5rem;
+  display: inline-block;
+  vertical-align: top;
+  min-height: 300px;
+  border-radius: 0.5rem;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.kanban-header {
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.kanban-item {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: grab;
+  transition: transform 0.2s ease-in-out;
+}
+
+.kanban-item:hover {
+  transform: translateY(-5px);
+}
+
+.kanban-item p {
+  margin: 0.5rem 0;
+}
+
+.kanban-item button {
+  margin-top: 1rem;
+}
+
+/* Cores para cada categoria */
+.bg-warning {
+  background-color: #ffcc00 !important;
+}
+
+.bg-danger {
+  background-color: #f44336 !important;
+}
+
+.bg-primary {
+  background-color: #2196f3 !important;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .kanban-column {
+    width: 48%;
+  }
+}
+
+@media (max-width: 768px) {
+  .kanban-column {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  .kanban-header {
+    font-size: 1.25rem;
+    padding: 0.5rem;
+  }
+
+  .kanban-item {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .kanban-item p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Drag and Drop */
+.kanban-column {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.kanban-item[draggable="true"]:hover {
+  cursor: grabbing;
+}
+
+/* Outros ajustes */
+.tags {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+
+/* Menu Hambúrguer */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1100;
+}
+
+.hamburger div {
+  width: 30px;
+  height: 4px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* Menu Lateral com opções */
+.bg-dark {
+  --bs-bg-opacity: 1;
+  background-color: #0d6efd !important;
+}
+
+.bg-secondary {
+  --bs-bg-opacity: 1;
+  background-color: #0d6efd !important;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.radio-group input {
+  margin-right: 5px;
+}
+
+.radio-group label {
+  margin-right: 15px;
+}
+
+.form-select {
+  --bs-form-select-bg-img: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e);
+  display: block;
+  width: 100%;
+  padding: .375rem 2.25rem .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--bs-body-color);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--bs-body-bg);
+  background-image: var(--bs-form-select-bg-img), var(--bs-form-select-bg-icon, none);
+  background-repeat: no-repeat;
+  background-position: right .75rem center;
+  background-size: 16px 12px;
+  border: var(--bs-border-width) solid #0d6efd;
+  border-radius: var(--bs-border-radius);
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+/* Cartões de resumo */
+.dashboard-summary {
+  display: flex;  
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-bottom: 40px;
+  margin-left: 90px;
+}
+
+.summary-card {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  
+  transition: transform 0.3s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-10px);
+}
+
+.summary-card h3 {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 10px;
+  
+}
+
+.summary-card p {
+  font-size: 32px;
+  font-weight: bold;
+  color: #0e85bd;
+}
+
+/* Gráficos */
+.charts-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-left: 95px;
+
+}
+
+.chart-card {
+  background-color: #fff;
+  padding: 20px;
+  width: calc(50% - 20px);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(33, 33, 33, 0.292);
+  transition: transform 0.3s ease;
+  
+}
+
+.chart-card:hover {
+  transform: translateY(-10px);
+}
+
+.chart-card h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Gráficos específicos */
+canvas {
+  width: 100%;
+  height: 200px;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .dashboard-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chart-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 400%;
+  }
+
+  .content {
+    margin-left: 0;
+  }
+
+  .dashboard-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-card {
+    width: 100%;
+  }
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--bs-heading-color);
+}
+.custom-logout-button {
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.custom-logout-button:hover {
+  background-color: #c82333; /* Cor mais escura ao passar o mouse */
+}
+.bg-primary[data-v-6dec5f19] {
+    background-color: #0d6efd !important;
+}
 </style>
+

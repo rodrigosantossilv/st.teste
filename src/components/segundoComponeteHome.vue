@@ -54,6 +54,7 @@ import Chart from 'chart.js/auto';
 import { onMounted } from 'vue';
 
 export default {
+  name: 'SegundoComponeteHome',
 mounted() {
   
   // Gráfico de Pizza

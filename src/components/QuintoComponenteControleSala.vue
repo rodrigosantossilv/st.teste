@@ -67,5 +67,10 @@
 
 <script>
 
+export default {
+    name: "QuintoComponenteControleSala",
+
+}
+
 
 </script>

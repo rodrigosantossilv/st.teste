@@ -66,8 +66,9 @@ draggable="true" @dragstart="drag($event, chamado)">
 import axios from 'axios';
 import { ROLES } from "../util/roles";
 
-
     export default {
+        name: "TerceiroComponeteKaban",
+
         
  data() {
     return {
