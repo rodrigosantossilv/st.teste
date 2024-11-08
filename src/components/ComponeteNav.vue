@@ -63,14 +63,19 @@ import TerceiroComponeteKaban from './ComponeteKaban.vue';
 export default {
   name: 'ComponeteNav',
   components: {
-    TerceiroComponeteKaban
+    TerceiroComponeteKaban,
+
   },
   data () {
     return {
       filterOcupacao: "TODOS",
       ROLES,
       role: null,
+      mostrarFormulario: false,
+
     };
   },
 }
 </script>
+
+
