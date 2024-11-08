@@ -5,14 +5,12 @@
   <ComponenteCadastro />
   <ComponenteControlesala />
   <ComponeteControleUsuario />
-  <loginPage />
-  <OpeticketPage />
+
   
 </template>
 
 <script>
-import loginPage from './components/LoginPage.vue';
-import OpeticketPage from './components/OpenTicketPage.vue';
+
 import ComponeteNav from './components/ComponeteNav.vue';
 import ComponenteCadastro from './components/ComponenteCadastro.vue';
 import ComponenteControleSala from './components/ComponenteControleSala.vue';
@@ -23,8 +21,6 @@ import ComponeteKaban from './components/ComponeteKaban.vue';
 export default {
   name: 'App', 
   components: {
-    loginPage,
-    OpeticketPage,
     ComponeteNav, 
     ComponeteHome, 
     ComponeteKaban,
