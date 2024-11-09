@@ -2,30 +2,29 @@ import { createRouter, createWebHistory } from 'vue-router';
 import "./CSS/style.css";
 import LoginPage from './components/LoginPage.vue';
 import OpenTicketPage from './components/OpenTicketPage.vue';
-import kaban from './components/kaban.vue';
-import ComponeteNav from './components/ComponeteNav.vue';
-import ComponeteHome from './components/ComponeteHome.vue';
-import ComponeteKaban from './components/ComponeteKaban.vue';
+import Kaban from './components/kaban.vue';
+import ComponenteNav from './components/ComponenteNav.vue';
+import ComponenteHome from './components/ComponenteHome.vue';
+import ComponenteKaban from './components/ComponenteKaban.vue';
 import ComponenteCadastro from './components/ComponenteCadastro.vue';
 import ComponenteControleSala from './components/ComponenteControleSala.vue';
-import ComponeteControleUsuario from './components/ComponeteControleUsuario.vue';
-
+import ComponenteControleUsuario from './components/ComponenteControleUsuario.vue';
 
 const routes = [
   { path: '/', component: LoginPage },
-  {path: '/ComponeteNav', component: ComponeteNav},
-  {pach: '/ComponeteHome', component: ComponeteHome},
-  {path: '/ComponeteKaban', component: ComponeteKaban},
-  {path: '/ComponenteCadastro', component: ComponenteCadastro},
-  {path: '/ComponenteControleSala', component: ComponenteControleSala},
-  {path: '/ComponeteControleUsuario', component: ComponeteControleUsuario},
-  {path: '/openticketpage', component: OpenTicketPage},
-  {path: '/kaban', component: kaban},
+  { path: '/ComponenteNav', component: ComponenteNav },
+  { path: '/ComponenteHome', component: ComponenteHome },
+  { path: '/ComponenteKaban', component: ComponenteKaban },
+  { path: '/ComponenteCadastro', component: ComponenteCadastro },
+  { path: '/ComponenteControleSala', component: ComponenteControleSala },
+  { path: '/ComponenteControleUsuario', component: ComponenteControleUsuario },
+  { path: '/openticketpage', component: OpenTicketPage },
+  { path: '/kaban', component: Kaban },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 });
 
 export default router;

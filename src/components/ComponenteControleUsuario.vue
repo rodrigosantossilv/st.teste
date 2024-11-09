@@ -66,6 +66,6 @@
 
 <script>
 export default {
-  nome: 'ComponeteControleUsuario',
+  nome: 'ComponenteControleUsuario',
 }
 </script>
