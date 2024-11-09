@@ -9,31 +9,31 @@
     <div class="sidebar bg-secondary text-white p-3">
       <h2>Menu</h2>
       <ul class="nav flex-column">
-        <li class="nav-item">
+        <li class="nav-item" :class="{'active': selectedComponent === 'ComponenteHome'}">
           <a class="nav-link text-white" @click="setComponent('ComponenteHome')" href="#">Home</a>
         </li>
         <li class="nav-item">
           <select v-model="filterOcupacao" class="form-select text-white bg-dark" @change="atualizarFiltro">
-            <option value="TODOS" selected>Todos os Chamados</option>
+            <option value="TODOS">Todos os Chamados</option>
             <option value="ESTUDANTE">Alunos</option>
             <option value="DOCENTE">Docentes</option>
             <option value="NOA">ADM</option>
           </select>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" :class="{'active': selectedComponent === 'ComponenteKaban'}">
           <a class="nav-link text-white" @click="setComponent('ComponenteKaban')" href="#">Kanban</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" :class="{'active': selectedComponent === 'ComponenteCadastro'}">
           <a class="nav-link text-white" @click="setComponent('ComponenteCadastro')" href="#">Novo Cadastro</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" :class="{'active': selectedComponent === 'ComponenteControleSala'}">
           <a class="nav-link text-white" @click="setComponent('ComponenteControleSala')" href="#">Cadastrar Sala</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" :class="{'active': selectedComponent === 'ComponenteControleUsuario'}">
           <a class="nav-link text-white" @click="setComponent('ComponenteControleUsuario')" href="#">Tabela de Usuários</a>
         </li>
-       
       </ul>
+      
       <!-- Botão de Logout -->
       <div class="mt-4 pt-2 border-top">
         <button @click="logout" class="btn btn-danger w-100 custom-logout-button">Sair</button>
@@ -75,10 +75,12 @@ export default {
       this.selectedComponent = componentName;
     },
     atualizarFiltro() {
-      // Lógica para atualizar filtro
+      console.log(`Filtro Atualizado: ${this.filterOcupacao}`);
+      // Aqui você pode implementar a lógica de filtragem de chamados
     },
     logout() {
-      // Lógica de logout
+      console.log('Logout efetuado');
+      // Lógica de logout (ex.: redirecionar ou limpar o estado de autenticação)
     }
   }
 };
@@ -95,5 +97,8 @@ export default {
 }
 .custom-logout-button {
   font-weight: bold;
+}
+.nav-item.active .nav-link {
+  background-color: #0d6efd; /* Cor de destaque para o item ativo */
 }
 </style>

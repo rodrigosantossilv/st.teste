@@ -3,7 +3,6 @@ import "./CSS/style.css";
 import LoginPage from './components/LoginPage.vue';
 import OpenTicketPage from './components/OpenTicketPage.vue';
 import Kaban from './components/kaban.vue';
-import ComponenteNav from './components/ComponenteNav.vue';
 import ComponenteHome from './components/ComponenteHome.vue';
 import ComponenteKaban from './components/ComponenteKaban.vue';
 import ComponenteCadastro from './components/ComponenteCadastro.vue';
@@ -12,7 +11,6 @@ import ComponenteControleUsuario from './components/ComponenteControleUsuario.vu
 
 const routes = [
   { path: '/', component: LoginPage },
-  { path: '/ComponenteNav', component: ComponenteNav },
   { path: '/ComponenteHome', component: ComponenteHome },
   { path: '/ComponenteKaban', component: ComponenteKaban },
   { path: '/ComponenteCadastro', component: ComponenteCadastro },
