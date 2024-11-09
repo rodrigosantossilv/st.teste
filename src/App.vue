@@ -49,7 +49,6 @@
 
 <script>
 import "./CSS/style.css";
-import ComponenteNav from './components/ComponenteNav.vue';
 import ComponenteCadastro from './components/ComponenteCadastro.vue';
 import ComponenteControleSala from './components/ComponenteControleSala.vue';
 import ComponenteHome from './components/ComponenteHome.vue';
@@ -59,7 +58,6 @@ import ComponenteKaban from './components/ComponenteKaban.vue';
 export default {
   name: 'App',
   components: {
-    ComponenteNav,
     ComponenteHome,
     ComponenteKaban,
     ComponenteCadastro,
