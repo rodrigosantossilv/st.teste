@@ -24,13 +24,13 @@
           <a class="nav-link text-white" @click="setComponent('ComponenteKaban')" href="#">Kanban</a>
         </li>
         <li class="nav-item" :class="{'active': selectedComponent === 'ComponenteCadastro'}">
-          <a class="nav-link text-white" @click="setComponent('ComponenteCadastro')" href="#">Novo Cadastro</a>
+          <a class="nav-link text-white" @click="setComponent('ComponenteCadastro')" href="#">Cadastro usuário</a>
         </li>
         <li class="nav-item" :class="{'active': selectedComponent === 'ComponenteControleSala'}">
           <a class="nav-link text-white" @click="setComponent('ComponenteControleSala')" href="#">Cadastrar Sala</a>
         </li>
         <li class="nav-item" :class="{'active': selectedComponent === 'ComponenteControleUsuario'}">
-          <a class="nav-link text-white" @click="setComponent('ComponenteControleUsuario')" href="#">Tabela de Usuários</a>
+          <a class="nav-link text-white" @click="setComponent('ComponenteControleUsuario')" href="#">Controle de Usuários</a>
         </li>
       </ul>
       
@@ -42,7 +42,7 @@
 
     <!-- Conteúdo dinâmico (componente selecionado) -->
     <div class="content-container p-3">
-      <component :is="selectedComponent" />
+      <component :is="selectedComponent" :filterOcupacao="filterOcupacao" />
     </div>
   </div>
 </template>
@@ -76,11 +76,9 @@ export default {
     },
     atualizarFiltro() {
       console.log(`Filtro Atualizado: ${this.filterOcupacao}`);
-      // Aqui você pode implementar a lógica de filtragem de chamados
     },
     logout() {
       console.log('Logout efetuado');
-      // Lógica de logout (ex.: redirecionar ou limpar o estado de autenticação)
     }
   }
 };
