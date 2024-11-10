@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import "./CSS/style.css";
+import "./assets/global.css";
 import ComponenteCadastro from './components/ComponenteCadastro.vue';
 import ComponenteControleSala from './components/ComponenteControleSala.vue';
 import ComponenteHome from './components/ComponenteHome.vue';

@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import "./CSS/style.css";
+import "./assets/global.css";
 import LoginPage from './components/LoginPage.vue';
 import OpenTicketPage from './components/OpenTicketPage.vue';
 import Kaban from './components/kaban.vue';
