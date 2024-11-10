@@ -1,6 +1,7 @@
 <template>
   <!-- Cabeçalho -->
   <header class="bg-primary text-white p-3">
+    <!-- Cabeçalho -->
   </header>
 
   <!-- Estrutura principal com o Dashboard e Kanban -->
@@ -12,16 +13,13 @@
         <li class="nav-item" :class="{'active': selectedComponent === 'ComponenteHome'}">
           <a class="nav-link text-white" @click="setComponent('ComponenteHome')" href="#">Home</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" :class="{'active': selectedComponent === 'ComponenteKaban'}">
           <select v-model="filterOcupacao" class="form-select text-white bg-dark" @change="atualizarFiltro">
             <option value="TODOS">Todos os Chamados</option>
             <option value="ESTUDANTE">Alunos</option>
             <option value="DOCENTE">Docentes</option>
             <option value="NOA">ADM</option>
           </select>
-        </li>
-        <li class="nav-item" :class="{'active': selectedComponent === 'ComponenteKaban'}">
-          <a class="nav-link text-white" @click="setComponent('ComponenteKaban')" href="#">Kanban</a>
         </li>
         <li class="nav-item" :class="{'active': selectedComponent === 'ComponenteCadastro'}">
           <a class="nav-link text-white" @click="setComponent('ComponenteCadastro')" href="#">Cadastro usuário</a>
@@ -76,9 +74,13 @@ export default {
     },
     atualizarFiltro() {
       console.log(`Filtro Atualizado: ${this.filterOcupacao}`);
+      // Ao alterar o filtro, mudamos o componente para 'ComponenteKaban'
+      this.selectedComponent = 'ComponenteKaban';
     },
     logout() {
       console.log('Logout efetuado');
+      localStorage.removeItem('authToken');
+      this.$router.push('/loginPage'); // Redireciona para a página de login
     }
   }
 };
