@@ -119,20 +119,21 @@ async atualizarUsuario() {
     this.mostrarMensagem("danger", "Erro ao atualizar o usuário.");
   }
 },
-    async removerUsuario(id) {
-      const token = localStorage.getItem("token");
-      try {
-        await axios.delete(`http://localhost:3000/auth/users/${id}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        console.log(`Usuário com ID ${id} removido`);
-        await this.carregarUsuarios(); // Recarrega a lista de usuários após remoção
-        this.mostrarMensagem("success", "Usuário removido com sucesso!");
-      } catch (error) {
-        console.error("Erro ao remover usuário:", error);
-        this.mostrarMensagem("danger", "Erro ao remover o usuário.");
-      }
-    },
+async removerUsuario(id) {
+  const token = localStorage.getItem("token");
+  try {
+    // Corrigindo a URL para refletir o endpoint correto
+    await axios.delete(`http://localhost:3000/usuarios/${id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    console.log(`Usuário com ID ${id} removido`);
+    await this.carregarUsuarios(); // Recarrega a lista de usuários após remoção
+    this.mostrarMensagem("success", "Usuário removido com sucesso!");
+  } catch (error) {
+    console.error("Erro ao remover usuário:", error);
+    this.mostrarMensagem("danger", "Erro ao remover o usuário.");
+  }
+},
     mostrarMensagem(tipo, texto) {
       this.mensagem = { tipo, texto };
       setTimeout(() => {
