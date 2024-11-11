@@ -111,7 +111,7 @@ export default {
             this.$router.push("/Kaban");
           } else if (
             response.data.ocupacao.endsWith("NOA")) {
-            this.$router.push("/sidebar");
+            this.$router.push("/");
           }
         } else {
           this.senhaInvalida = true;
