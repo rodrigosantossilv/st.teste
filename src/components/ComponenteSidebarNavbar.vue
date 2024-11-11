@@ -30,6 +30,9 @@
         <li class="nav-item" :class="{'active': selectedComponent === 'ComponenteControleUsuario'}">
           <a class="nav-link text-white" @click="setComponent('ComponenteControleUsuario')" href="#">Controle de Usuários</a>
         </li>
+        <li class="nav-item" :class="{'active': selectedComponent === 'ComponenteCadastroEquipamentos'}">
+          <a class="nav-link text-white" @click="setComponent('ComponenteCadastroEquipamentos')" href="#">Cadastro de equipamentos</a>
+        </li>
       </ul>
       
       <!-- Botão de Logout -->
@@ -84,20 +87,73 @@ export default {
   }
 };
 </script>
-
 <style>
 .sidebar {
   width: 250px;
   height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #0d6efd !important; /* Força a cor azul */
+  color: rgb(172, 160, 160);
 }
+
 .content-container {
+  margin-left: 250px;
   flex: 1;
   padding: 20px;
 }
+
 .custom-logout-button {
   font-weight: bold;
 }
+
 .nav-item.active .nav-link {
-  background-color: #0d6efd; /* Cor de destaque para o item ativo */
+  background-color: #0654e6; /* Cor de destaque para o item ativo */
+}
+
+/* Remova ou ajuste a classe .bg-secondary para não interferir */
+.bg-secondary {
+    background-color: #0d6efd !important;
+    color: white;
+}
+
+.sidebar h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar .nav-item {
+  margin: 10px 0;
+}
+
+.sidebar .nav-link {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #043c61;
+}
+
+/* Responsividade para Sidebar */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: 400px;
+    top: 0;
+    height: 100%;
+    z-index: 1000;
+    transform: translateX(0);
+  }
+
+  .sidebar.active {
+    transform: translateX(450px);
+  }
 }
 </style>
+
